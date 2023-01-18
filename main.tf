@@ -27,15 +27,6 @@ resource "mongodbatlas_database_user" "users" {
   }
 }
 
-# FW #########################
-resource "mongodbatlas_project_ip_access_list" "cluster_access_ip" {
-  for_each = {for ip in var.allowed_ips :  ip.ip_address => ip}
-
-  project_id = var.project_id
-  ip_address = each.value.ip_address
-  comment    = each.value.comment ? each.value.comment : ""
-}
-
 # Db instance #########################
 resource "mongodbatlas_advanced_cluster" "cluster" {
   project_id                     = var.project_id

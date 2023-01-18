@@ -3,12 +3,6 @@ variable "project_id" {
   type        = any
 }
 
-variable "allowed_ips" {
-  description = "List of FW allowed ips"
-  type        = list(map(any))
-  default     = []
-}
-
 variable "cluster_name" {
   description = "Cluster name"
   type        = string

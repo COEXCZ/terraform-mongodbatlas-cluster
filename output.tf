@@ -22,7 +22,7 @@ output "cluster_cluser_id" {
 output "cluster_users" {
   value = {for u in mongodbatlas_database_user.users : u.username => {
     username: u.username,
-    database: nonsensitive(u.password),
+    password: nonsensitive(u.password),
     roles: u.roles
   }}
 }

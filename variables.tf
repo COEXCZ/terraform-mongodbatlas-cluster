@@ -88,3 +88,9 @@ variable "disk_size_gb" {
   type = number
   default = null
 }
+
+variable "mongo_db_major_version" {
+  description = "Major version for mongodb"
+  type = number
+  default = 5.0
+}

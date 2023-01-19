@@ -20,7 +20,7 @@ output "cluster_cluser_id" {
 }
 
 output "cluster_users" {
-  value = {for u in mongodbatlas_database_user.users : u.username => {
+  value = {for index, u in mongodbatlas_database_user.users : index => {
     username: u.username,
     password: nonsensitive(u.password),
     roles: u.roles

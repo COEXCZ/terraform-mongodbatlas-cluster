@@ -60,7 +60,6 @@ resource "mongodbatlas_cloud_backup_schedule" "backup_schedule" {
 
   reference_hour_of_day    = var.backup_hour
   reference_minute_of_hour = var.backup_minute
-  restore_window_days      = var.backup_pitr_days
 
 
   // This will now add the desired policy items to the existing mongodbatlas_cloud_backup_schedule resource

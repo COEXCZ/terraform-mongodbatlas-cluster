@@ -100,11 +100,6 @@ variable "backup_enabled" {
   type = bool
 }
 
-variable "backup_pitr_days" {
-  description = "Number of days back in time you can restore to with point-in-time accuracy. Must be a positive, non-zero integer."
-  type = number
-}
-
 variable "backup_hour" {
   description = "UTC Hour of day between 0 and 23, inclusive"
   type = number

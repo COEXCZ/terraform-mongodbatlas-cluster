@@ -94,3 +94,28 @@ variable "mongo_db_major_version" {
   type = number
   default = 5.0
 }
+
+variable "cloud_backup" {
+  description = "Set to true to enable Atlas legacy backups for the cluster"
+  type = bool
+}
+
+variable "backup_pitr_days" {
+  description = "Number of days back in time you can restore to with point-in-time accuracy. Must be a positive, non-zero integer."
+  type = number
+}
+
+variable "backup_hour" {
+  description = "UTC Hour of day between 0 and 23, inclusive"
+  type = number
+}
+
+variable "backup_minute" {
+  description = "UTC Minutes after reference_hour_of_day that Atlas takes snapshots for backup policy items. Must be between 0 and 59, inclusive."
+  type = number
+}
+
+variable "backup_retention_days" {
+  description = "UTC Minutes after reference_hour_of_day that Atlas takes snapshots for backup policy items. Must be between 0 and 59, inclusive."
+  type = number
+}

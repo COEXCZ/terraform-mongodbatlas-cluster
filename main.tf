@@ -35,6 +35,7 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
   termination_protection_enabled = var.cluster_termination_protection_enabled
   disk_size_gb = var.disk_size_gb
   mongo_db_major_version = var.mongo_db_major_version
+  cloud_backup = var.cloud_backup
 
   replication_specs {
     region_configs {
@@ -49,5 +50,23 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
       priority              = var.cluster_region_configs_priority
     }
     num_shards = var.cluster_replication_specs_num_shards
+  }
+}
+
+# Backuping scheduler #####################
+resource "mongodbatlas_cloud_backup_schedule" "backup_schedule" {
+  project_id                     = var.project_id
+  cluster_name = replace(var.cluster_name, "_", "-")
+
+  reference_hour_of_day    = var.backup_hour
+  reference_minute_of_hour = var.backup_minute
+  restore_window_days      = var.backup_pitr_days
+
+
+  // This will now add the desired policy items to the existing mongodbatlas_cloud_backup_schedule resource
+  policy_item_daily {
+    frequency_interval = 1
+    retention_unit     = "days"
+    retention_value    = var.backup_retention_days
   }
 }

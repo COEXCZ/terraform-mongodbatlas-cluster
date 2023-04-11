@@ -54,6 +54,7 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
 }
 
 # Backuping scheduler #####################
+# requires to have IP access list created on API KEY, update via web UI
 resource "mongodbatlas_cloud_backup_schedule" "backup_schedule" {
   project_id                     = var.project_id
   cluster_name = replace(var.cluster_name, "_", "-")

@@ -103,17 +103,17 @@ variable "backup_enabled" {
 variable "backup_hour" {
   description = "UTC Hour of day between 0 and 23, inclusive"
   type = number
-  default = null
+  default = 0
 }
 
 variable "backup_minute" {
   description = "UTC Minutes after reference_hour_of_day that Atlas takes snapshots for backup policy items. Must be between 0 and 59, inclusive."
   type = number
-  default = null
+  default = 0
 }
 
 variable "backup_retention_days" {
   description = "UTC Minutes after reference_hour_of_day that Atlas takes snapshots for backup policy items. Must be between 0 and 59, inclusive."
   type = number
-  default = null
+  default = 0
 }

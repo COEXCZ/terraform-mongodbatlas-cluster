@@ -35,7 +35,7 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
   termination_protection_enabled = var.cluster_termination_protection_enabled
   disk_size_gb = var.disk_size_gb
   mongo_db_major_version = var.mongo_db_major_version
-  backup_enabled = var.cloud_backup
+  backup_enabled = var.backup_enabled
 
   replication_specs {
     region_configs {

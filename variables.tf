@@ -95,7 +95,7 @@ variable "mongo_db_major_version" {
   default = 5.0
 }
 
-variable "cloud_backup" {
+variable "backup_enabled" {
   description = "Set to true to enable Atlas legacy backups for the cluster"
   type = bool
 }
